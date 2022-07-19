@@ -15,6 +15,7 @@ const InputFunction = () => {
   console.log('secretWord:', secretWord);
   console.log('guessedLetters:', guessedLetters);
   const handleInput = (event) => {
+    // get the last element in the string input
     const input = event.target.value.slice(-1);
     console.log('input:', input);
 
@@ -29,7 +30,6 @@ const InputFunction = () => {
     });
     setGuessedLetters(arr);
   };
-  console.log('guessedLetters:', guessedLetters);
   return (
     <div>
       <div>
