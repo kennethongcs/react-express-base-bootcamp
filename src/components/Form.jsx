@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LinkList from './LinkList.jsx';
 
 const FormFunction = () => {
   const [inputValue, setInputValue] = useState('');
@@ -7,10 +8,6 @@ const FormFunction = () => {
   const saveInput = (evt) => {
     const input = evt.target.value;
     setInputValue(input);
-    console.log(
-      '🚀 ~ file: Form.jsx ~ line 10 ~ addLinksToList ~ input',
-      input
-    );
   };
 
   const addLinksToList = () => {
@@ -29,6 +26,10 @@ const FormFunction = () => {
       <button type="submit" onClick={addLinksToList}>
         Submit
       </button>
+      <h3>List of links below:</h3>
+      <ul>
+        <LinkList links={links} />
+      </ul>
     </div>
   );
 };
