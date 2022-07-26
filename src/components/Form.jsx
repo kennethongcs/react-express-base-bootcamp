@@ -5,6 +5,10 @@ const FormFunction = () => {
   const [inputValue, setInputValue] = useState('');
   const [links, setLinksList] = useState([]);
 
+  const handleCheck = () => {
+    console.log('hello');
+  };
+
   const saveInput = (evt) => {
     const input = evt.target.value;
     setInputValue(input);
@@ -28,7 +32,7 @@ const FormFunction = () => {
       </button>
       <h3>List of links below:</h3>
       <ul>
-        <LinkList links={links} />
+        <LinkList links={links} handleCheck={handleCheck} />
       </ul>
     </div>
   );

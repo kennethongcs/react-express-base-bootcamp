@@ -1,14 +1,18 @@
 import React from 'react';
 
-const ListOfLinks = ({ links }) => {
-  const loop = links.map((link) => <li key={`${link} + 1`}>{link}</li>);
+const ListOfLinks = ({ links, handleCheck }) => {
+  const loop = links.map((link) => (
+    <li key={`${link} + 1`}>
+      {link} <input type="checkbox" onChange={handleCheck}></input>
+    </li>
+  ));
   return loop;
 };
 
-export default function LinkList({ links }) {
+export default function LinkList({ links, handleCheck }) {
   return (
     <div>
-      <ListOfLinks links={links} />
+      <ListOfLinks links={links} handleCheck={handleCheck} />
     </div>
   );
 }
