@@ -4,6 +4,7 @@ import LinkList from './LinkList.jsx';
 const FormFunction = () => {
   const [inputValue, setInputValue] = useState('');
   const [links, setLinksList] = useState([]);
+  const [checkedLinks, setCheckedLinks] = useState([]);
 
   const handleCheck = () => {
     console.log('hello');
