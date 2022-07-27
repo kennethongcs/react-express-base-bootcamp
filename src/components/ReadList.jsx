@@ -1,10 +1,16 @@
 import React from 'react';
 
 export default function ReadList({ readLinks }) {
-  // <ul>
-  //   {readLinks.map((element) => {
-  //     console.log(element);
-  //     return <li>{element}</li>;
-  //   })}
-  // </ul>;
+  return (
+    <ul>
+      {readLinks.map((element) => {
+        console.log(element);
+        return (
+          <li>
+            <a href={element}>{element}</a>
+          </li>
+        );
+      })}
+    </ul>
+  );
 }

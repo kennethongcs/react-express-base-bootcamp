@@ -9,8 +9,12 @@ const FormFunction = () => {
 
   const handleRead = (ext) => {
     const read = ext.target.value;
-    console.log('🚀 ~ file: Form.jsx ~ line 12 ~ handleRead ~ read', read);
+    readLinks.push(read);
     setReadLinks(readLinks);
+    console.log(
+      '🚀 ~ file: Form.jsx ~ line 15 ~ handleRead ~ readLinks',
+      readLinks
+    );
 
     // remove read from linksList and add to new list
     const newList = links.filter((element) => element !== read);
@@ -24,10 +28,8 @@ const FormFunction = () => {
 
   const addLinksToList = () => {
     if (inputValue) {
-      setLinksList(links);
-      console.log(links);
       links.push(inputValue);
-      console.log(links);
+      setLinksList([...links]);
     } else {
       console.log('Blank');
     }
