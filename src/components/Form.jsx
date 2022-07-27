@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
 import LinkList from './LinkList.jsx';
+import ReadList from './ReadList.jsx';
 
 const FormFunction = () => {
   const [inputValue, setInputValue] = useState('');
   const [links, setLinksList] = useState([]);
-  const [checkedLinks, setCheckedLinks] = useState([]);
+  const [readLinks, setReadLinks] = useState([]);
 
-  const handleCheck = () => {
-    console.log('hello');
+  const handleRead = (ext) => {
+    const read = ext.target.value;
+    console.log('🚀 ~ file: Form.jsx ~ line 12 ~ handleRead ~ read', read);
+    setReadLinks(readLinks);
+
+    // remove read from linksList and add to new list
+    const newList = links.filter((element) => element !== read);
+    setLinksList([...newList]);
   };
 
   const saveInput = (evt) => {
@@ -17,8 +24,10 @@ const FormFunction = () => {
 
   const addLinksToList = () => {
     if (inputValue) {
+      setLinksList(links);
+      console.log(links);
       links.push(inputValue);
-      setLinksList([...links]);
+      console.log(links);
     } else {
       console.log('Blank');
     }
@@ -31,10 +40,18 @@ const FormFunction = () => {
       <button type="submit" onClick={addLinksToList}>
         Submit
       </button>
-      <h3>List of links below:</h3>
-      <ul>
-        <LinkList links={links} handleCheck={handleCheck} />
-      </ul>
+      <div className="link-list">
+        <h3>List of links below:</h3>
+        <ul>
+          <LinkList links={links} handleRead={handleRead} />
+        </ul>
+      </div>
+      <div className="read-list">
+        <h3>List of read links:</h3>
+        <div>
+          <ReadList readLinks={readLinks} />
+        </div>
+      </div>
     </div>
   );
 };
